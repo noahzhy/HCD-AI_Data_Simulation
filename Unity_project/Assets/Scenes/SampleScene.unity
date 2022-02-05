@@ -181,7 +181,7 @@ PrefabInstance:
     - target: {fileID: 5866666021909216657, guid: 5c21f602d4eefcc4dbcdd55321142ed8, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 75d3a58b3d7879f41926561701407a48, type: 2}
+      objectReference: {fileID: 9100000, guid: eb79e3fd0dd669f40a90a984b92a0ccf, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c21f602d4eefcc4dbcdd55321142ed8, type: 3}
 --- !u!1 &705507993
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab6886d58ba28146a8db360e30d3a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 200
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +343,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 33
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -368,13 +368,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.029270796, y: 0.89980537, z: -0.061109148, w: -0.43099785}
-  m_LocalPosition: {x: 1.6684568, y: 1.3983665, z: 1.5866779}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,7 +384,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bab6886d58ba28146a8db360e30d3a81, type: 3}
+  m_Script: {fileID: 11500000, guid: aba819751fbd4714ea69fe175433b122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 25
+  speed: 100
+  offset: 1
+  amplitude: 0.5
+  fov_init: 50
+  fov_scope: 25
+  sin_speed: 1
+  cos_speed: 3
