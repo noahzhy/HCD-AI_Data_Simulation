@@ -11,7 +11,6 @@ public class Change_action : MonoBehaviour
     private List<string> animatorsControllers = new List<string>();
 
     public float action_holding = 5.0f;
-    public float capture_holding = 1.0f;
 
     // Start is called before the first frame update
     void Start()
