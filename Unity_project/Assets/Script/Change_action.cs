@@ -40,7 +40,7 @@ public class Change_action : MonoBehaviour
 
     void AnimCtrChange() {
         string tmp = animatorsControllers[0];
-        // Debug.Log(tmp);
+        Debug.Log(tmp);
         animator.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load(tmp);
         animatorsControllers.RemoveAt(0);
         animatorsControllers.Add(tmp);
