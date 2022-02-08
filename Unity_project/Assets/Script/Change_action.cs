@@ -10,7 +10,8 @@ public class Change_action : MonoBehaviour
 
     private List<string> animatorsControllers = new List<string>();
 
-    public float action_holding = 5.0f;
+    public float RotateSpeed = .5f;
+    public float AnimHolding = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class Change_action : MonoBehaviour
         animator.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load(
             animatorsControllers[0]
         );
-        InvokeRepeating("changeAC", 0f, action_holding);
+        InvokeRepeating("AnimCtrChange", 0f, AnimHolding);
         // // for testing
         // foreach (var j in animatorsControllers){
         //     Debug.Log(j);
@@ -34,12 +35,12 @@ public class Change_action : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        this.transform.Rotate(Vector3.up * RotateSpeed, Space.Self);
     }
 
-    void changeAC() {
+    void AnimCtrChange() {
         string tmp = animatorsControllers[0];
-        Debug.Log(tmp);
+        // Debug.Log(tmp);
         animator.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load(tmp);
         animatorsControllers.RemoveAt(0);
         animatorsControllers.Add(tmp);
