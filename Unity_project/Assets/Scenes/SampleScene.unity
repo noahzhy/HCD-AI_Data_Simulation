@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab6886d58ba28146a8db360e30d3a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 300
+  speed: 233
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +368,8 @@ MonoBehaviour:
   capture_holding: 1
   width: 1280
   height: 720
+  counter_start: 0
+  counter_end: 10
   BackgroundCamera: {fileID: 1378451246}
 --- !u!1 &1213947376
 GameObject:
@@ -678,9 +680,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7252228434403314338, guid: 5e4dd242216cab940a1ba023966ec903, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5e4dd242216cab940a1ba023966ec903, type: 3}
       propertyPath: m_Name
       value: Banana Man
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630794972795428178, guid: 5e4dd242216cab940a1ba023966ec903, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630794972795428178, guid: 5e4dd242216cab940a1ba023966ec903, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -9103484930961366303, guid: 5e4dd242216cab940a1ba023966ec903, type: 3}
+    - target: {fileID: 1630794972795428178, guid: 5e4dd242216cab940a1ba023966ec903, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d55a8668bda94c94cb70855eae5ea838, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 5e4dd242216cab940a1ba023966ec903, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 5e4dd242216cab940a1ba023966ec903, type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 5e4dd242216cab940a1ba023966ec903, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036213049465896255, guid: 5e4dd242216cab940a1ba023966ec903, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e4dd242216cab940a1ba023966ec903, type: 3}

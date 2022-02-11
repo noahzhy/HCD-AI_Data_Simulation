@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using System.IO;
 
 public class Camera_capture : MonoBehaviour
@@ -8,6 +9,9 @@ public class Camera_capture : MonoBehaviour
     public float capture_holding = 1.0f;
     public int width = 1280;
     public int height = 720;
+
+    public int counter_start = 0;
+    public int counter_end = 10;
 
     public Camera BackgroundCamera;
     private Camera camera;
@@ -31,20 +35,23 @@ public class Camera_capture : MonoBehaviour
     }
 
     void Capture() {
-        string filename = "00001";
-        CamCapture(filename);
+        if (counter_start < counter_end) {
+            string filename = counter_start.ToString("D6");
+            CamCapture(filename);
+            counter_start += 1;
+        } else {
+            EditorApplication.isPlaying = false;
+        }
     }
 
-    void SaveScreenShot(Texture2D imageShot, string filename) {
+    void SaveScreenShot(Texture2D imageShot, string filename, string format) {
         byte[] bytes = imageShot.EncodeToPNG();
-        string savePath = Application.dataPath + "/" + filename + ".jpg";
+        string savePath = Application.dataPath + "/images/" + filename + format;
         System.IO.File.WriteAllBytes(savePath, bytes);
         Debug.Log(string.Format("Save Path: {0}", savePath));
     }
 
     void CamCapture(string filename) {
-        // RenderTexture img_rt = new RenderTexture(width, height, -1);
-        // RenderTexture lab_rt = new RenderTexture(width, height, -1);
         RenderTexture img_rt = RenderTexture.GetTemporary(width, height, 24);
         RenderTexture lab_rt = RenderTexture.GetTemporary(width, height, 24);
 
@@ -58,7 +65,6 @@ public class Camera_capture : MonoBehaviour
         imageShot.ReadPixels(new Rect(0, 0, width, height), 0, 0);
         imageShot.Apply();
 
-
         // only camera (for labels)
         camera.targetTexture = lab_rt;
         camera.Render();
@@ -70,12 +76,11 @@ public class Camera_capture : MonoBehaviour
         camera.targetTexture = null;
         BackgroundCamera.targetTexture = null;
         RenderTexture.active = null;
-        // GameObject.Destroy(img_rt);
-        // GameObject.Destroy(lab_rt);
+
         RenderTexture.ReleaseTemporary(img_rt);
         RenderTexture.ReleaseTemporary(lab_rt);
 
-        SaveScreenShot(imageShot, "image_" + filename);
-        SaveScreenShot(labelShot, "label_" + filename);
+        SaveScreenShot(imageShot, filename, ".jpg");
+        SaveScreenShot(labelShot, filename, ".png");
     }
 }
